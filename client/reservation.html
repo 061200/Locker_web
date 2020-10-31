@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="reset.css">
+        <style>
+            body{
+                width: 100vw;
+                height: 100vh;
+
+                display: grid; /*grid 사용하기 위한*/
+                grid-template-columns: 250px ;
+                grid-template-rows: 50px ;
+                grid-template-areas: 
+                "header header"
+                "s_left content";
+                
+            }
+            #s_left {
+                background-color: white;
+                grid-area: s_left;
+                
+            }
+            #content{
+                background-color: #ddd;
+                grid-area: content;
+                
+            }
+            header{
+                grid-area: header;
+                background-color: #f8f8f8;
+                border: #e7e7e7;
+
+                font-size: 20px;
+            }
+            .width{
+                width: 1140px;
+                margin: 0 auto;
+                justify-content: center;
+                line-height: 50px;
+
+                
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="reservation.css">
+    </head>
+    <body>
+        <header>
+            <div class="width">소프트웨어학과 사물함 배정
+                <button type="button">login</button>
+                <button type="button">info</button>
+            </div>
+        </header>
+        <div id="s_left">
+            <ul>
+                <li><a href="./1">menu1</a></li>
+                <li><a href="./2">menu2</a></li>
+                <li><a href="./3">menu3</a></li>
+                <li><a href="./4">menu4</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            HELLO
+        </div>
+    </body>
+</html>
