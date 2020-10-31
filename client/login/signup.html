@@ -4,6 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width='device-width', initial-scale=1.0">
     <title>회원가입 페이지</title>
+    <script>
+        var text = "";
+        
+
+        var count = 0;
+        function check() {
+          count++; // 배열 비우기 위한 변수
+          // DOM 객체 찾기
+          var idn = document.getElementById("idn");
+          var pw = document.getElementById("pw");
+          var correctPassword = document.getElementById("correctPassword");
+          var userEmail = document.getElementById("userEmail");
+     
+          // 정규 표현식
+          var idPattern = /^[0-9]+$/;
+          var pwPattern = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
+          var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+     
+          // 아이디
+          if(idPattern.test(idn.value) == true){
+            text += "ID : " + idn.value + "\n";
+          }
+          else alert("아이디를 잘못 입력 하셨습니다.");
+     
+          // 패스워드
+          if(pwPattern.test(pw.value) == true){
+            if(pw.value == correctPassword.value){
+                text += "PW : " + pw.value + "\n";
+            }
+            else alert("패스워드가 일치 하지 않습니다.");
+          }
+          else alert("패스워드를 잘못 입력 하셨습니다.");
+     
+          // 이메일
+          if(emailPattern.test(userEmail.value) == true){
+            text += "EMAIL : " + userEmail.value + "\n";
+          }
+          else alert("이메일을 잘못 입력 하셨습니다.");
+
+
+          alert(text); // 입력정보출력
+     
+          // 이전에 입력했던 회원정보를 비우기
+          if(count == 0+count)
+            text = [];
+        }
+     
+        // 클리어
+        function inputClear() {
+          document.getElementById("fm").reset();
+        }
+
+      </script>
 </head>
 <body>
     <h1>회원가입 페이지</h1>
@@ -14,45 +67,40 @@
            <tr>
               <th>이름</th>
               <td><input type="text" name="mbname"></td>
+              <td><input type="button" id="button" value="유효성 확인" onclick="check()"></td></tr>
            </tr>
             <tr>
               <th>학번(아이디)</th>
               <td>
-              <input type="text" name="cursor:pointer">
+              <input type="text" id="idn" name="id" placeholder="숫자 8자리">
               </td>
             </tr>
+
+
             <tr>
               <th>비밀번호</th>
-              <td><input type="password" name="mbpw">
+                <td><input type="password" id="pw" name="password" placeholder="영어,특수문자,숫자를 섞어서 (8~16)자리">
+                </td>
             </tr>
             <tr>
               <th>비밀번호 확인</th>
-              <td><input type="password" name="mbpw_re"></td>
+              <td><input type="password" id="correctPassword" name="password_re"></td>
             </tr>
 
-        </tr>
+
+
+
         <tr>
           <th>이메일</th>
-          <td>
-            <input type='text' name="email">@
-            <input type='text' name="email_dns">
-              <select name="emailaddr">
-                 <option value="">직접입력</option>
-                 <option value="daum.net">daum.net</option>
-                 <option value="empal.com">empal.com</option>
-                 <option value="gmail.com">gmail.com</option>
-                 <option value="hanmail.net">hanmail.net</option>
-                 <option value="msn.com">msn.com</option>
-                 <option value="naver.com">naver.com</option>
-                 <option value="nate.com">nate.com</option>
-              </select>
+            <td>
+                <input type="text" id="userEmail">
             </td>
          </tr>
             <tr height="2" color="#FFC8C3"><td colspan="2"></td></tr>
             <tr>
               <td colspan="2" >
                     <input type="submit" value="회원가입">
-                    <input type="reset" value="취소">
+                    <input type="reset" value="초기화">
                 </td>
             </tr>
         </table>
