@@ -6,7 +6,8 @@
     <title>회원가입 페이지</title>
     <script>
         var text = "";
-        
+        var alert_text = "";
+        var flag = 0;
 
         var count = 0;
         function check() {
@@ -19,35 +20,68 @@
      
           // 정규 표현식
           var idPattern = /^[0-9]+$/;
-          var pwPattern = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
+          var pwPattern = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/
           var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
      
           // 아이디
           if(idPattern.test(idn.value) == true){
             text += "ID : " + idn.value + "\n";
           }
-          else alert("아이디를 잘못 입력 하셨습니다.");
-     
+          else {
+            alert_text += "아이디";
+            flag = 1;
+          }
           // 패스워드
-          if(pwPattern.test(pw.value) == true){
+
+        if(pwPattern.test(pw.value) == true){
+            console.log("password !")
             if(pw.value == correctPassword.value){
                 text += "PW : " + pw.value + "\n";
             }
-            else alert("패스워드가 일치 하지 않습니다.");
-          }
-          else alert("패스워드를 잘못 입력 하셨습니다.");
-     
+            else {
+                flag = 4;
+                alert("비밀번호가 일치 하지 않습니다.");
+            }
+        }
+        else {    
+            if(flag == 1){
+                flag = 2;
+                alert_text += ", 비밀번호";
+            }
+            else{
+                alert_text += "비밀번호";
+            }
+        }
           // 이메일
           if(emailPattern.test(userEmail.value) == true){
             text += "EMAIL : " + userEmail.value + "\n";
           }
-          else alert("이메일을 잘못 입력 하셨습니다.");
+          else {
+              
+            if(flag == 2 || flag == 1){
+                flag = 3;
+                alert_text += ", 이메일을 잘못 입력하셨습니다.";
+            }
+            else{
+                flag = 3;
+                alert_text += "이메일을 잘못 입력하셨습니다.";
+            }
+        }
 
+        if(flag == 1 || flag == 2){
+            alert_text += "를 잘못 입력하셨습니다.";
+            alert(alert_text);
+        }
+        else if (flag == 3){
+            alert(alert_text);
+        }
+        else if (flag == 0){
+            alert(text+"\n유효함"); // 입력정보출력
+        }
 
-          alert(text); // 입력정보출력
-     
           // 이전에 입력했던 회원정보를 비우기
           if(count == 0+count)
+            alert_text = [];
             text = [];
         }
      
@@ -79,7 +113,7 @@
 
             <tr>
               <th>비밀번호</th>
-                <td><input type="password" id="pw" name="password" placeholder="영어,특수문자,숫자를 섞어서 (8~16)자리">
+                <td><input type="password" id="pw" name="password" placeholder="영문,숫자 혼합 (6~20)자리">
                 </td>
             </tr>
             <tr>
