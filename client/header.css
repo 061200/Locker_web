@@ -1,0 +1,55 @@
+header {
+  margin: 20 auto;
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1300px;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 50px;
+}
+
+.title {
+  margin: auto 0 auto 10px;
+}
+
+.menu {
+  width: 30%;
+  margin: auto 0;
+}
+
+.menu_left {
+  display: flex;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+}
+
+.menu li {
+  margin: 0 20px;
+}
+.menu a {
+  text-decoration: none;
+  color: #aaa;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.menu a:hover {
+  background-color: black;
+  color: white;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.menu_right {
+  text-align: end;
+}
