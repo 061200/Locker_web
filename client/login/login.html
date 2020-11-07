@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./login.css">
+    <link rel="stylesheet" type="text/css" href="../reset.css">
     <title>로그인 페이지</title>
 </head>
 <body>
 
     <h1>사물함 예약 서비스</h1>
-    <form action="/" method="post" >
-        <p><input class="input" id="username" type="text" name="username" Placeholder = "아이디"></p>
-        <p><input class="input" id="password" type="text" name="password" placeholder="비밀번호"></p>
-        <p><input type="submit" onclick="() => check" id="login_button" value="로그인"></p>
-    </form>
-
-    <a  href="./signup.html" style="text-decoration:none" href="">
-        가입하기
-    </a>
+    <main>
+        <form action="/" method="post" id="main_box" >
+            <p>
+                <input class="input" id="username" type="text" name="username" Placeholder = "ID"></p>
+            <p>
+                <input class="input" id="password" type="text" name="password" placeholder="Password"></p>
+            <p><input type="submit" onclick="() => check" id="login_button" value="Login"></p>
+        </form>
+        <div id="signup">
+            <a href="./signup.html" style="text-decoration:none" href="">
+                가입하기
+            </a>
+        </div>
+    </main>
+        
     
 </body>
 </html>
