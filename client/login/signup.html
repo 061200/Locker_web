@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./signup.css">
+    <link rel="stylesheet" type="text/css" href="../reset.css">
+    <link rel="stylesheet" type="text/css" href="../header.css">
     <title>회원가입 페이지</title>
     <script>
         var text = "";
@@ -92,52 +95,67 @@
 
       </script>
 </head>
-<body>
-    <h1>회원가입 페이지</h1>
 
+
+<body>
+  <header>
+    <div class="container">
+        <div class="menu menu_left">
+            <img src="../logo.jpg" class="logo">
+            <span class="title">사물함 예약 시스템</span>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">RESERVATION</a></li>
+            </ul>
+        </nav>
+        <div class="menu menu_right">마이페이지</div>
+    </div>
+  </header>
+
+  <main>
     <form name="write_form_member" method="post">
-        <table width="940" style="padding:5px 0 5px 0; ">
-           <tr height="2" color="#FFC8C3"><td colspan="2"></td></tr>
-           <tr>
-              <th>이름</th>
+        <table>
+          <tr height="2" color="#FFC8C3"><td colspan="2"></td></tr>
+          <tr>
+            <th class="text">이름</th>
               <td><input type="text" name="mbname"></td>
-              <td><input type="button" id="button" value="유효성 확인" onclick="check()"></td></tr>
+              <!--<td><input type="button" id="button" value="유효성 확인" onclick="check()"></td></tr>-->
            </tr>
             <tr>
-              <th>학번(아이디)</th>
+              <th class="text">학번(아이디)</th>
               <td>
               <input type="text" id="idn" name="id" placeholder="숫자 8자리">
               </td>
             </tr>
 
-
             <tr>
-              <th>비밀번호</th>
+              <th class="text">비밀번호</th>
                 <td><input type="password" id="pw" name="password" placeholder="영문,숫자 혼합 (6~20)자리">
                 </td>
             </tr>
             <tr>
-              <th>비밀번호 확인</th>
+              <th class="text">비밀번호 확인</th>
               <td><input type="password" id="correctPassword" name="password_re"></td>
             </tr>
 
-
-
-
         <tr>
-          <th>이메일</th>
+          <th class="text">이메일</th>
             <td>
                 <input type="text" id="userEmail">
             </td>
          </tr>
-            <tr height="2" color="#FFC8C3"><td colspan="2"></td></tr>
-            <tr>
-              <td colspan="2" >
-                    <input type="submit" value="회원가입">
-                    <input type="reset" value="초기화">
-                </td>
+            <tr><td></td>
+              <td class="button_box">
+                    <input class="button" type="submit" value="회원가입">
+                    <br>
+                    <input class="button" type="reset" value="초기화">
+              </td>
             </tr>
         </table>
     </form>
+
+  </main>
 </body>
 </html>
