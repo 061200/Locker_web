@@ -3,7 +3,7 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 body{
-    background-color: #E6E6E6;
+    background-color:  #fafafa;
 }
 main{
 
@@ -15,7 +15,7 @@ main{
 
     text-align: center;
     border-radius: 2px;
-    box-shadow: 0px 0px 3px 3px lightgrey;
+    box-shadow: 0px 0px 3px 3px #e6e6e6;
     padding: 50px 2vw;
     margin: 100px auto;
 
