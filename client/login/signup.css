@@ -2,8 +2,12 @@
 * {
     font-family: 'Noto Sans KR', sans-serif;
 }
-
+body{
+    background-color: #E6E6E6;
+}
 main{
+
+    background-color: #fff;
 
     width: 300px;
     font-size: 10px;

@@ -2,8 +2,12 @@
         * {
             font-family: 'Noto Sans KR', sans-serif;
         }
+body{
+    background-color: #E6E6E6;
+}
 
 main{
+    background-color: #fff;
     max-width: 300px;
     width: 100vw;
     font-size: 10px;
@@ -29,8 +33,6 @@ main{
     border: 0.5px solid rgb(219, 219, 219);
 
     font-size: 15px
-
-
 } 
 #login_button{
 
