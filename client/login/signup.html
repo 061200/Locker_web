@@ -7,110 +7,23 @@
     <link rel="stylesheet" type="text/css" href="../reset.css">
     <link rel="stylesheet" type="text/css" href="../header.css">
     <title>회원가입 페이지</title>
-    <script>
-        var text = "";
-        var alert_text = "";
-        var flag = 0;
-
-        var count = 0;
-        function check() {
-          count++; // 배열 비우기 위한 변수
-          // DOM 객체 찾기
-          var idn = document.getElementById("idn");
-          var pw = document.getElementById("pw");
-          var correctPassword = document.getElementById("correctPassword");
-          var userEmail = document.getElementById("userEmail");
-     
-          // 정규 표현식
-          var idPattern = /^[0-9]+$/;
-          var pwPattern = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/
-          var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-     
-          // 아이디
-          if(idPattern.test(idn.value) == true){
-            text += "ID : " + idn.value + "\n";
-          }
-          else {
-            alert_text += "아이디";
-            flag = 1;
-          }
-          // 패스워드
-
-        if(pwPattern.test(pw.value) == true){
-            console.log("password !")
-            if(pw.value == correctPassword.value){
-                text += "PW : " + pw.value + "\n";
-            }
-            else {
-                flag = 4;
-                alert("비밀번호가 일치 하지 않습니다.");
-            }
-        }
-        else {    
-            if(flag == 1){
-                flag = 2;
-                alert_text += ", 비밀번호";
-            }
-            else{
-                alert_text += "비밀번호";
-            }
-        }
-          // 이메일
-          if(emailPattern.test(userEmail.value) == true){
-            text += "EMAIL : " + userEmail.value + "\n";
-          }
-          else {
-              
-            if(flag == 2 || flag == 1){
-                flag = 3;
-                alert_text += ", 이메일을 잘못 입력하셨습니다.";
-            }
-            else{
-                flag = 3;
-                alert_text += "이메일을 잘못 입력하셨습니다.";
-            }
-        }
-
-        if(flag == 1 || flag == 2){
-            alert_text += "를 잘못 입력하셨습니다.";
-            alert(alert_text);
-        }
-        else if (flag == 3){
-            alert(alert_text);
-        }
-        else if (flag == 0){
-            alert(text+"\n유효함"); // 입력정보출력
-        }
-
-          // 이전에 입력했던 회원정보를 비우기
-          if(count == 0+count)
-            alert_text = [];
-            text = [];
-        }
-     
-        // 클리어
-        function inputClear() {
-          document.getElementById("fm").reset();
-        }
-
-      </script>
+    
 </head>
-
 
 <body>
   <header>
     <div class="container">
-        <div class="menu menu_left">
-            <img src="../logo.jpg" class="logo">
-            <span class="title">사물함 예약 시스템</span>
-        </div>
-        <nav class="menu">
-            <ul>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">RESERVATION</a></li>
-            </ul>
-        </nav>
-        <div class="menu menu_right">마이페이지</div>
+      <div class="menu menu_left">
+        <img src="../logo.jpg" class="logo">
+        <span class="title">사물함 예약 시스템</span>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">RESERVATION</a></li>
+        </ul>
+      </nav>
+      <div class="menu menu_right">마이페이지</div>
     </div>
   </header>
 
@@ -158,4 +71,91 @@
 
   </main>
 </body>
+<script>
+  var text = "";
+  var alert_text = "";
+  var flag = 0;
+
+  var count = 0;
+  function check() {
+    count++; // 배열 비우기 위한 변수
+    // DOM 객체 찾기
+    var idn = document.getElementById("idn");
+    var pw = document.getElementById("pw");
+    var correctPassword = document.getElementById("correctPassword");
+    var userEmail = document.getElementById("userEmail");
+
+    // 정규 표현식
+    var idPattern = /^[0-9]+$/;
+    var pwPattern = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/
+    var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+    // 아이디
+    if (idPattern.test(idn.value) == true) {
+      text += "ID : " + idn.value + "\n";
+    }
+    else {
+      alert_text += "아이디";
+      flag = 1;
+    }
+    // 패스워드
+
+    if (pwPattern.test(pw.value) == true) {
+      console.log("password !")
+      if (pw.value == correctPassword.value) {
+        text += "PW : " + pw.value + "\n";
+      }
+      else {
+        flag = 4;
+        alert("비밀번호가 일치 하지 않습니다.");
+      }
+    }
+    else {
+      if (flag == 1) {
+        flag = 2;
+        alert_text += ", 비밀번호";
+      }
+      else {
+        alert_text += "비밀번호";
+      }
+    }
+    // 이메일
+    if (emailPattern.test(userEmail.value) == true) {
+      text += "EMAIL : " + userEmail.value + "\n";
+    }
+    else {
+
+      if (flag == 2 || flag == 1) {
+        flag = 3;
+        alert_text += ", 이메일을 잘못 입력하셨습니다.";
+      }
+      else {
+        flag = 3;
+        alert_text += "이메일을 잘못 입력하셨습니다.";
+      }
+    }
+
+    if (flag == 1 || flag == 2) {
+      alert_text += "를 잘못 입력하셨습니다.";
+      alert(alert_text);
+    }
+    else if (flag == 3) {
+      alert(alert_text);
+    }
+    else if (flag == 0) {
+      alert(text + "\n유효함"); // 입력정보출력
+    }
+
+    // 이전에 입력했던 회원정보를 비우기
+    if (count == 0 + count)
+      alert_text = [];
+    text = [];
+  }
+
+  // 클리어
+  function inputClear() {
+    document.getElementById("fm").reset();
+  }
+
+</script>
 </html>

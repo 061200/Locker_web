@@ -131,3 +131,7 @@ table {
 * {
   font-family: "Noto Sans KR", sans-serif;
 }
+
+body {
+  background-color: #fafafa;
+}
