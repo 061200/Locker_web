@@ -8,65 +8,60 @@
 
     <style>
         
-        header {
-            margin: 0 auto;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-            font-size: 15px;
+        body{
+            background-color: #E6E6E6;
         }
+    .main_container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 100px auto;
+    }
 
-        .container {
-            display: flex;
-            width: 90vw;
-            margin: 0 auto;
-            max-width: 1300px;
-            justify-content: space-between;
-        }
 
-        .logo {
-            width: 50px;
-        }
+    .map {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        height: 50%;
+    }
 
-        .title {
-            margin: auto 0 auto 10px;
-        }
+    .map div {
+        border: 1px solid #ddd;
+    }
 
-        .menu {
-            margin: auto 0;
-            width: 30%;
-        }
 
-        .menu_left {
-            display: flex;
-        }
+    .cabinet {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        justify-content: space-between;
+    }
 
-        ul {
-            display: flex;
-            justify-content: center;
-        }
+    .corridor {
+        width: 10%;
+    }
 
-        .menu li {
-            margin: 0 2vw;
-        }
-        .menu a {
-            text-decoration: none;
-            color: #aaa;
-            padding: 1vw;
-            font-weight: 700;
-            letter-spacing: 0.2vw;
-        }
+    .cabinet_select {
+        display: flex;
+        justify-content: space-between;
+        height: 30%;
+    }
 
-        .menu a:hover {
-            background-color: black;
-            color: white;
-            transition-duration: 1s;
-            transition-timing-function: ease-in-out;
-        }
+    .cabinet_select div {
+        width: 23%;
+        box-shadow: 0px 0px 10px 0px #aaa;
+    }
 
-        .menu_right {
-            text-align: end;
-            padding-right: 3vw;
-        }
+    .cabinet_select div:hover {
+        box-shadow: 0px 0px 10px 0px pink;
+    }
+
+    .sub_title {
+        font-size: 2rem;
+        margin: 2em;
+        text-align: center;
+    }
+
         
     </style>
 
@@ -87,7 +82,26 @@
             </div>
         </header>
         <main>
-            <div>hello</div>
+            <div>
+                <div class="main_container">
+                    <div class="sub_title">사물함 배치도</div>
+                    <div class="map">
+                        <div class="cabinet">
+                            <div class="cabinet_select">
+                                <div>1</div>
+                                <div>2</div>
+                                <div>3</div>
+                            </div>
+                            <div class="cabinet_select">
+                                <div>1</div>
+                                <div>2</div>
+                                <div>3</div>
+                            </div>
+                        </div>
+                        <div class="corridor">복도</div>
+                    </div>
+                </div>
+            </div>
         </main>
     </body>
 </html>
