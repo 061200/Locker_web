@@ -58,5 +58,8 @@ ul {
 
 .menu_right {
   text-align: end;
-  padding-right: 3vw;
+}
+
+.my_page {
+  margin-right: 50px;
 }

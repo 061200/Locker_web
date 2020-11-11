@@ -1,6 +1,7 @@
 <html>
-
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width='device-width', initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../reset.css">
         <link rel="stylesheet" type="text/css" href="../header.css">
         <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -61,6 +62,43 @@
 
         
     </style>
+    <style>
+        @media (max-width: 800px){
+            nav{
+                display: none;
+                font-size: 12px;
+            }
+            .menu{
+                width: 50%;
+            }
+        }
+        @media (max-width: 600px){
+            
+            .my_page{
+                margin-right: 10px;
+            }
+            .logo{
+                width:40px;
+            }
+
+            header{
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 350px){
+            
+            .my_page{
+                margin-right: 5px;
+            }
+            .logo{
+                width:30px;
+            }
+
+            header{
+                font-size: 11px;
+            }
+        }
+    </style>
 
     <body>
         <header>
@@ -75,7 +113,9 @@
                         <li><a href="#">RESERVATION</a></li>
                     </ul>
                 </nav>
-                <div class="menu menu_right">마이페이지</div>
+                <div class="menu menu_right">
+                    <div class="my_page">마이페이지</div>
+                </div>
             </div>
         </header>
         <main>
