@@ -85,7 +85,7 @@ ul {
     font-size: 14px;
   }
 }
-@media (max-width: 350px) {
+@media (max-width: 355px) {
   .my_page {
     margin-right: 5px;
   }
