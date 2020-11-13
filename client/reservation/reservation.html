@@ -37,13 +37,14 @@
         border: 1px solid #ddd;
     }
 
-    .cabinet_select div {
+    .cabinet_box {
         width: 23%;
         box-shadow: 0px 0px 10px 0px #aaa;
         margin: 2.5px;
+        background-color:white;
     }
 
-    .cabinet_select div:hover {
+    .cabinet_box:hover {
         box-shadow: 0px 0px 10px 0px rgb(147, 107, 221);
     }
 
@@ -105,6 +106,23 @@
             for (let index = 0; index < COL; index++) {
                 let cabinet_box = document.createElement("div");
                 cabinet_box.className = "cabinet_box";
+                //코드 정말 별로다! 고쳐야 되는데..;;
+                cabinet_box.addEventListener("click",(e)=>{
+                    let box = e.target;
+                    let box_background = box.style.backgroundColor;
+
+                    
+                    if(box_background === "rgb(147, 107, 221)"){
+                        box.style.backgroundColor = "white";
+                        alert("예약 취소");
+                    }else if(box_background ==="black"){
+                        alert("이미 예약된 사물함입니다!");
+                    }else{
+                        box.style.backgroundColor = "rgb(147, 107, 221)";
+                        alert("예약 완료");
+                    }
+                    
+                })
                 cabinet_select.appendChild(cabinet_box);
             }
             
@@ -113,6 +131,9 @@
         
     }
     cabinetMaking();
+
+    
+    
 
 </script>
 </html>
