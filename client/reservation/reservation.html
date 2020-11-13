@@ -16,35 +16,25 @@
         margin: 100px auto;
     }
 
-    .map {
+    #cabinet {
         margin: 0 auto;
         display: flex;
         justify-content: center;
-        height: 50vw;
-        max-height: 450px;
-        min-height: 180px;
-    }
+        height: 45vw;
+        max-height: 500px;
+        min-height: 300px;
 
-    .map div {
-        border: 1px solid #ddd;
-    }
-
-
-    #cabinet {
         display: flex;
         flex-direction: column;
         width: 90%;
         justify-content: space-between;
     }
 
-    .corridor {
-        width: 10%;
-    }
-
     .cabinet_select {
         display: flex;
         justify-content: space-between;
         height: 30%;
+        border: 1px solid #ddd;
     }
 
     .cabinet_select div {
@@ -58,26 +48,17 @@
     }
 
     .sub_title {
-        font-size: 32px;
+        font-size: 25px;
         margin: 2em;
         text-align: center;
     }
 
     @media (max-width: 800px) {
         .sub_title {
-            font-size: 30px;
-        }
-    }
-    @media (max-width: 600px) {
-        .sub_title {
-            font-size: 25px;
-        }
-    }
-    @media (max-width: 355px) {
-        .sub_title {
             font-size: 20px;
         }
     }
+    
 </style>
 
 
@@ -103,10 +84,8 @@
         <div>
             <div class="main_container">
                 <div class="sub_title">사물함 1</div>
-                <div class="map">
-                    <div id="cabinet">
-                          
-                    </div>
+                <div class="map" id="cabinet">
+                    
                 </div>
             </div>
         </div>
