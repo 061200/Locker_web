@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width='device-width', initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./signup.css">
+    <link rel="stylesheet" type="text/css" href="../signup.css">
     <link rel="stylesheet" type="text/css" href="../reset.css">
     <link rel="stylesheet" type="text/css" href="../header.css">
     <title>회원가입 페이지</title>
@@ -30,12 +30,12 @@
   </header>
 
   <main>
-    <form name="write_form_member" method="post">
+    <form name="write_form_member" method="post" action="/process/addUser">
         <table>
           <tr height="2" color="#FFC8C3"><td colspan="2"></td></tr>
           <tr>
             <th class="text">이름</th>
-              <td><input type="text" name="mbname"></td>
+              <td><input type="text" name="name"></td>
               <!--<td><input type="button" id="button" value="유효성 확인" onclick="check()"></td></tr>-->
            </tr>
             <tr>
@@ -47,18 +47,18 @@
 
             <tr>
               <th class="text">비밀번호</th>
-                <td><input type="password" id="pw" name="password" placeholder="영문,숫자 혼합 (6~20)자리">
+                <td><input type="password" id="pw" name="passwords" placeholder="영문,숫자 혼합 (6~20)자리">
                 </td>
             </tr>
             <tr>
               <th class="text">비밀번호 확인</th>
-              <td><input type="password" id="correctPassword" name="password_re"></td>
+              <td><input type="password" id="correctPassword" name="passwords_re"></td>
             </tr>
 
         <tr>
           <th class="text">이메일</th>
             <td>
-                <input type="text" id="userEmail">
+                <input type="text" id="email" name="email">
             </td>
          </tr>
             <tr><td></td>
