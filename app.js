@@ -40,17 +40,15 @@ app.use(bodyParser_post.json());                                     // json 사
 
 
 
-
-
 //app 라우팅 하기
 app.use('/', indexRouter);
 app.use('/process', processRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   next(createError(404));
-});
+});*/
 
 // error handler
 app.use(function(err, req, res, next) {
