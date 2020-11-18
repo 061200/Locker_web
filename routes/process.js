@@ -17,16 +17,13 @@ var pool = mySql.createPool({
 
 
 router.get('/login', function(_req, res) {
-    res.sendFile(__dirname + '/login/login.html');
+    res.render('login');
 }); 
  
 router.get('/addUser', function(_req, res) {
-    res.sendFile(__dirname + '/login/signup.html');
+    res.render('signup');
 }); 
 
-router.get('/reservation', function(_req, res) {
-    res.sendFile(__dirname + '/reservation/main.html');
-});
 
 router.route('/addUser').post(
     function (req, res)
