@@ -2,79 +2,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width='device-width', initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/reservation.css">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.io-client/dist/socket.io.js "></script>
 </head>
-
-<style>
-    .main_container {
-        width: 80%;
-        max-width: 1000px;
-        margin: 100px auto;
-    }
-
-    #cabinet {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        height: 45vw;
-        max-height: 500px;
-        min-height: 300px;
-
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        justify-content: space-between;
-    }
-
-    .cabinet_select {
-        display: flex;
-        justify-content: space-between;
-        height: 30%;
-        border: 1px solid #ddd;
-    }
-
-    .cabinet_box {
-        width: 23%;
-        box-shadow: 0px 0px 10px 0px #aaa;
-        margin: 2.5px;
-        background-color:white;
-    }
-
-    .cabinet_box:hover {
-        box-shadow: 0px 0px 10px 0px rgb(147, 107, 221);
-    }
-
-    .sub_title {
-        font-size: 25px;
-        margin: 2em;
-        text-align: center;
-    }
-
-    @media (max-width: 800px) {
-        .sub_title {
-            font-size: 20px;
-        }
-    }
-    
-
-    .enable {
-        background: gray;
-    }
-
-    .enable:hover {
-        background: black;
-    }
-
-    .disable {
-        background: red;
-    }
-
-
-</style>
 
 
 <body>
@@ -131,6 +65,7 @@
             if (confirm('좌석을 예약하시겠습니까?')) {
                 $(this).off('click');
                 socket.emit('reserve', {
+                    page: 0,
                     x: x,
                     y: y
                 });
@@ -142,7 +77,7 @@
         // Ajax를 수행합니다.
         $.getJSON('/seats', { dummy: new Date().getTime() }, function (data) {
             // 좌석을 생성합니다.
-            $.each(data, function (indexY, line) {
+            $.each(data[0], function (indexY, line) {
                 // 문서 객체를 생성합니다.
                 var $line = $('<div></div>').addClass('cabinet_select');
                 $.each(line, function (indexX, cabinet) {
@@ -166,49 +101,4 @@
         });
     });
 </script>
-
-<!-- <script>
-    function cabinetMaking(){
-        let cabinet = document.getElementById('cabinet');
-
-        const ROW = 10;
-        const COL = 10;
-
-        for (let index = 0; index < ROW; index++) {
-            let cabinet_select = document.createElement("div");
-            cabinet_select.className = "cabinet_select";
-            
-            for (let index = 0; index < COL; index++) {
-                let cabinet_box = document.createElement("div");
-                cabinet_box.className = "cabinet_box";
-                //코드 정말 별로다! 고쳐야 되는데..;;
-                cabinet_box.addEventListener("click",(e)=>{
-                    let box = e.target;
-                    let box_background = box.style.backgroundColor;
-
-                    
-                    if(box_background === "rgb(147, 107, 221)"){
-                        box.style.backgroundColor = "white";
-                        alert("예약 취소");
-                    }else if(box_background ==="black"){
-                        alert("이미 예약된 사물함입니다!");
-                    }else{
-                        box.style.backgroundColor = "rgb(147, 107, 221)";
-                        alert("예약 완료");
-                    }
-                    
-                })
-                cabinet_select.appendChild(cabinet_box);
-            }
-            
-            cabinet.appendChild(cabinet_select);
-        }
-        
-    }
-    cabinetMaking();
-
-    
-    
-
-</script> -->
 </html>
