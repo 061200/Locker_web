@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <style>
@@ -80,7 +81,7 @@
     <header>
         <div class="container">
             <div class="menu menu_left">
-                <img src="../src/images/logo.jpg" class="logo">
+                <img src="/images/logo.jpg" class="logo">
                 <span class="title">사물함 예약 시스템</span>
             </div>
             <nav class="menu">
@@ -117,6 +118,7 @@
         $target.removeClass('enable');
         $target.addClass('disable');
     });
+
 </script>
 
 <!-- 초기 좌석 생성 -->
@@ -140,32 +142,32 @@
         // Ajax를 수행합니다.
         $.getJSON('/seats', { dummy: new Date().getTime() }, function (data) {
             // 좌석을 생성합니다.
-            $.each(data, function (indexY, cabinet_select) {
+            $.each(data, function (indexY, line) {
                 // 문서 객체를 생성합니다.
-                var $cabinet_select = $('<div></div>').addClass('cabinet_select');
-                $.each(cabinet_select, function (indexX, box) {
+                var $line = $('<div></div>').addClass('cabinet_select');
+                $.each(line, function (indexX, cabinet) {
                     // 문서 객체를 생성하고 변수 $line에 추가합니다.
-                    var $output = $('<div></div>', {
-                        'class': 'box',
+                    var $cabinet = $('<div></div>', {
+                        'class': 'cabinet_box',
                         'data-x': indexX,
                         'data-y': indexY
-                    }).appendTo($cabinet_select);
-                    if (seat == 1) {
+                    }).appendTo($line);
+                    if (cabinet == 1) {
                         // 좌석이 비어 있으면 enable 클래스와 click 리스너를 추가합니다.
-                        $output.addClass('enable').on('click', onClickSeat);
-                    } else if (seat == 2) {
+                        $cabinet.addClass('enable').on('click', onClickSeat);
+                    } else if (cabinet == 2) {
                         // 좌석이 사용 불가능하면 disable 클래스를 추가합니다.
-                        $output.addClass('disable');
+                        $cabinet.addClass('disable');
                     }
                 });
                 // 문서 객체를 추가합니다.
-                $line.appendTo('body');
+                $line.appendTo($`#cabinet`);
             });
         });
     });
 </script>
 
-<script>
+<!-- <script>
     function cabinetMaking(){
         let cabinet = document.getElementById('cabinet');
 
@@ -208,5 +210,5 @@
     
     
 
-</script>
+</script> -->
 </html>
