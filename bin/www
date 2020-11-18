@@ -22,6 +22,19 @@ app.set('port', port); /// 포트 3000번으로 지정
 var server = http.createServer(app); //웹서버 생성
 
 
+
+var socketio = require('socket.io');
+var io = socketio(server); //socketio.listen(server) 하니까 오류가 발생한다. -> 왜 그런지 나중에 알아보자..
+console.log(io);
+io.sockets.on('connection', function (socket) {
+    socket.on('reserve', function (data) {
+        //seats[data.page][data.y][data.x] = 2;
+        io.sockets.emit('reserve', data);
+    });
+});
+
+
+
 /**
  * Listen on provided port, on all network interfaces.
  */
