@@ -30,15 +30,15 @@
     </header>
     <main>
       <div>
-        <button href="/reservation/4" onclick="setPage(0)">1</button>
-        <button href="/reservation/4" onclick="setPage(1)">2</button>
-        <button href="/reservation/4" onclick="setPage(2)">3</button>
-        <button href="/reservation/4" onclick="setPage(3)">4</button>
-        <button href="/reservation/5" onclick="setPage(4)">5</button>
+        <button onclick="setPage(0)">1</button>
+        <button onclick="setPage(1)">2</button>
+        <button onclick="setPage(2)">3</button>
+        <button onclick="setPage(3)">4</button>
+        <button onclick="setPage(4)">5</button>
       </div>
       <div>
         <div class="main_container">
-          <div class="sub_title">사물함 <%= data %></div>
+          <div class="sub_title">사물함 1</div>
           <div class="map" id="cabinet"></div>
         </div>
       </div>
@@ -113,6 +113,9 @@
     var page = 0;
     function setPage(i){
       page = i;
+
+      $('.sub_title').text("사물함"+ (page+1));
+
 
       $('.cabinet_select').remove();
       $.getJSON("/seats", function (data) {
