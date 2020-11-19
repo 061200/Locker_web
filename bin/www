@@ -21,15 +21,28 @@ app.set('port', port); /// 포트 3000번으로 지정
 
 var server = http.createServer(app); //웹서버 생성
 
-
+//var x = require('../public/locker');
+//console.log(x);
 
 var socketio = require('socket.io');
 var io = socketio(server); //socketio.listen(server) 하니까 오류가 발생한다. -> 왜 그런지 나중에 알아보자..
 
+
+var fs = require('fs');
+const { parse } = require('path');
+var locker = fs.readFileSync(__dirname+'/../locker.json');
+var lockerJSON = JSON.parse(locker);
+var seats = lockerJSON.seats; // seat 상태 받아오기
+
+
+
 io.on('connection', function (socket) {
     console.log("Socket Connected!");
     socket.on('reserve', function (data) {
-        //seats[data.page][data.y][data.x] = 2;
+      lockerJSON.seats[data.page][data.y][data.x] = 2; 
+      fs.writeFile(__dirname+'/../locker.json',JSON.stringify(lockerJSON), (err)=>{
+            if (err) throw err;
+          });
         io.emit('reserve', data);
     });
 });

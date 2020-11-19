@@ -39,6 +39,16 @@ app.use(bodyParser_post.urlencoded({ extended: false }));            // post 방
 app.use(bodyParser_post.json());                                     // json 사용 하는 경우의 세팅
 
 
+/*var fs = require('fs');
+var locker = fs.readFileSync(__dirname+'/public/locker.json')
+var lockerJSON = JSON.parse(locker);
+console.log(lockerJSON.seats);
+*/
+
+
+
+
+
 
 //app 라우팅 하기
 app.use('/', indexRouter);
