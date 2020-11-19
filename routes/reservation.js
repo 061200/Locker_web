@@ -10,15 +10,14 @@ var lockerJSON = JSON.parse(locker);
 
 
 
-//라우팅 -> 나중에 라우팅 따로 해주자
+//reservation 에서의 라우팅
 router.get('/', function(req, res){
     res.render('reservation');
 });
 
-router.get('/hi/:id',(req,res)=>{
-    res.send('reservation');
+router.get('/:pageid',(req,res)=>{
+    res.render('reservation',{data:req.params.pageid});
 })
-
 router.get('/seats', function(req, res){ // /seats 에 상태 보내기
     res.send(lockerJSON.seats);
 });
