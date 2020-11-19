@@ -29,7 +29,7 @@
       </div>
     </header>
     <main>
-      <div>
+      <div class="submenu">
         <button onclick="setPage(0)">1</button>
         <button onclick="setPage(1)">2</button>
         <button onclick="setPage(2)">3</button>
@@ -114,7 +114,7 @@
     function setPage(i){
       page = i;
 
-      $('.sub_title').text("사물함"+ (page+1));
+      $('.sub_title').text("사물함 "+ (page+1));
 
 
       $('.cabinet_select').remove();
