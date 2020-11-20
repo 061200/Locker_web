@@ -12,7 +12,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  opacity: 1;
+  opacity: 0;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: none;
@@ -25,18 +25,23 @@
 }
 .bg-slide li:nth-child(2) {
   background-image: url(../images/2.png);
-  -webkit-animation-delay: 3s;
-  animation-delay: 3s;
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
 }
 .bg-slide li:nth-child(3) {
   background-image: url(../images/3.png);
-  -webkit-animation-delay: 6s;
-  animation-delay: 6s;
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
 }
 .bg-slide li:nth-child(4) {
   background-image: url(../images/4.png);
-  -webkit-animation-delay: 9s;
-  animation-delay: 9s;
+  -webkit-animation-delay: 15s;
+  animation-delay: 15s;
+}
+.bg-slide li:nth-child(5) {
+  background-image: url(../images/5.png);
+  -webkit-animation-delay: 20s;
+  animation-delay: 20s;
 }
 
 @-webkit-keyframes bg-slide-animation {
