@@ -74,14 +74,19 @@
     height: 25px;
   }
 }
+
+.disable {
+  background: rgb(75, 75, 75);
+}
+
 .enable {
-  background: gray;
+  background: rgb(150, 150, 150);
 }
 
 .enable:hover {
-  background: black;
+  background: rgb(60, 0, 83);
 }
 
-.disable {
-  background: red;
+.reservated {
+  background-color: red;
 }
