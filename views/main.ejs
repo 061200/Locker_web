@@ -3,106 +3,68 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width='device-width', initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="/css/header.css">
         <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+
+        <script type="text/javascript" src="../js/carousel.js"></script>
     </head>
-
-    <style>
-  
-    .main_container {
-    width: 80%;
-    max-width: 1000px;
-    margin: 100px auto;
-    }
-
-    .map {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        height: 23vw;
-        max-height: 400px;
-        min-height: 180px;
-    }
-
-    .map div {
-        border: 1px solid #ddd;
-    }
-
-
-    .cabinet {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        justify-content: space-between;
-    }
-
-    .corridor {
-        width: 10%;
-    }
-
-    .cabinet_select {
-        display: flex;
-        justify-content: space-between;
-        height: 30%;
-    }
-
-    .cabinet_select a {
-        width: 23%;
-        box-shadow: 0px 0px 10px 0px #aaa;
-    }
-
-    .cabinet_select a:hover {
-        box-shadow: 0px 0px 10px 0px pink;
-    }
-
-    .sub_title {
-        font-size: 2rem;
-        margin: 2em;
-        text-align: center;
-    }
-
-    </style>
-    
-
     <body>
-        <header>
-            <div class="container">
-                <div class="menu menu_left">
-                    <img src="/images/logo.jpg" class="logo">
-                    <span class="title">사물함 예약 시스템</span>
-                </div>
-                <nav class="menu">
-                    <ul>
-                        <li><a href="#">ABOUT</a></li>
-                        <li><a href="#">RESERVATION</a></li>
-                    </ul>
-                </nav>
-                <div class="menu menu_right">
-                    <div class="my_page">마이페이지</div>
-                </div>
+
+  <!-- carousel를 구성할 영역 설정 -->
+  <div style="height: 600px; width: 1200px;margin: 0 auto; margin-top: 100px;">
+    <!-- carousel를 사용하기 위해서는 class에 carousel와 slide 설정한다. -->
+    <div id="carousel-example-generic" class="carousel slide">
+        <ol class="carousel-indicators">
+            <!-- li는 이미지 개수만큼 추가하고 data-target은 carousel id를 가르킨다. -->
+            <!-- data-slide-to는 순서대로 0부터 올라가고 0은 active를 설정한다. -->
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        </ol>
+        <!-- 실제 이미지 아이템 -->
+        <!-- class는 carousel-inner로 설정하고 role은 listbox로 설정한다. -->
+        <div class="carousel-inner" role="listbox">
+            <!-- 이미지의 개수만큼 item을 만든다. carousel-indicators의 li 태그 개수와 item의 개수는 일치해야 한다. -->
+            <div class="item active">
+                <!-- 아미지 설정(회전하는 이미지)--->
+                <img src="../public/images/1.png" style="height:100%">
             </div>
-        </header>
-        <main>
-            <div>
-                <div class="main_container">
-                    <div class="sub_title">사물함 배치도</div>
-                    <div class="map">
-                        <div class="cabinet">
-                            <div class="cabinet_select">
-                                <a href="#"></a>
-                                <a href="#"></a>
-                                <a href="#"></a>
-                            </div>
-                            <div class="cabinet_select">
-                                <a href="#"></a>
-                                <a href="#"></a>
-                                <a href="#"></a>
-                            </div>
-                        </div>
-                        <div class="corridor">복도</div>
-                    </div>
-                </div>
+            <div class="item">
+                <img src="../public/images/2.png" style="height:100%">
             </div>
-        </main>
+            <div class="item">
+                <img src="../public/images/3.png" style="height:100%">
+            </div>
+            <div class="item">
+                <img src="../public/images/4.png" style="height:100%">
+            </div>
+            <div class="item">
+                <img src="../public/images/5.png" style="height:100%">
+            </div>
+        </div>
     </body>
+    <script type="text/javascript">//dropdown 위해서 fadeToggle 사용
+        // 전제가 아니라 마우스 올려놓은 부분의 세부 메뉴만 보기 위해서 this객체에서 .drop(세부 메뉴)를 찾아서 나타나게 함.
+        $(".menu_opt").hover(function () {
+            $(this).find(".drop").stop().fadeToggle(400);
+        });
+    
+    </script>
+    <script>
+         $(function () {
+            // 이미지 슬라이드 컨트롤를 사용하기 위해서는 carousel를 실행해야한다.	
+            $('#carousel-example-generic').carousel({
+                // 슬리아딩 자동 순환 지연 시간	
+                // false면 자동 순환하지 않는다.	
+                interval: 2000,
+                // hover를 설정하면 마우스를 가져대면 자동 순환이 멈춘다.	
+                pause: "hover",
+                // 순환 설정, true면 1 -> 2가면 다시 1로 돌아가서 반복	
+                wrap: true,
+                // 키보드 이벤트 설정 여부(?)	
+                keyboard: true
+            });
+        });	
+    </script>
 </html>

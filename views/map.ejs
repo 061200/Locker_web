@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width='device-width', initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/css/header.css">
+        <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    </head>
+
+    <style>
+  
+    .main_container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 100px auto;
+    }
+
+    .map {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        height: 23vw;
+        max-height: 400px;
+        min-height: 180px;
+    }
+
+    .map div {
+        border: 1px solid #ddd;
+    }
+
+
+    .cabinet {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        justify-content: space-between;
+    }
+
+    .corridor {
+        width: 10%;
+    }
+
+    .cabinet_select {
+        display: flex;
+        justify-content: space-between;
+        height: 30%;
+    }
+
+    .cabinet_select a {
+        width: 23%;
+        box-shadow: 0px 0px 10px 0px #aaa;
+    }
+
+    .cabinet_select a:hover {
+        box-shadow: 0px 0px 10px 0px pink;
+    }
+
+    .sub_title {
+        font-size: 2rem;
+        margin: 2em;
+        text-align: center;
+    }
+
+    </style>
+    
+
+    <body>
+        <header>
+            <div class="container">
+                <div class="menu menu_left">
+                    <img src="/images/logo.jpg" class="logo">
+                    <span class="title">사물함 예약 시스템</span>
+                </div>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#">ABOUT</a></li>
+                        <li><a href="#">RESERVATION</a></li>
+                    </ul>
+                </nav>
+                <div class="menu menu_right">
+                    <div class="my_page">마이페이지</div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div>
+                <div class="main_container">
+                    <div class="sub_title">사물함 배치도</div>
+                    <div class="map">
+                        <div class="cabinet">
+                            <div class="cabinet_select">
+                                <a href="#"></a>
+                                <a href="#"></a>
+                                <a href="#"></a>
+                            </div>
+                            <div class="cabinet_select">
+                                <a href="#"></a>
+                                <a href="#"></a>
+                                <a href="#"></a>
+                            </div>
+                        </div>
+                        <div class="corridor">복도</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
