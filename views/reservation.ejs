@@ -66,12 +66,15 @@
       })
       
       if(flag == 0){
+        alert("예약되었습니다.");
         var $target = $("div[data-x = " + data.x + "][data-y = " + data.y + "]");
         $target.removeClass("enable");
         $target.addClass("reservated").on("click", onClickSeat);
       }else{
+        
         var $target = $("div[data-x = " + data.x + "][data-y = " + data.y + "]");
         if($target.hasClass("reservated")){
+          alert("예약을 취소하셨습니다.");
           $target.removeClass("reservated");
           $target.addClass("enable").on("click", onClickSeat);
         }else{
