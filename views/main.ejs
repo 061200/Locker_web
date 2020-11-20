@@ -4,44 +4,72 @@
         <meta name="viewport" content="width='device-width', initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/css/reset.css">
         <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="../js/carousel.js"></script>
-    </head>
+        <link rel="stylesheet" type="text/css" href="/css/header.css">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/home1.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
     <body>
-    
-    <!-- carousel를 구성할 영역 설정 -->
-    <div style="height: 600px; width: 1200px;margin: 0 auto; margin-top: 100px;">
-        <!-- carousel를 사용하기 위해서는 class에 carousel와 slide 설정한다. -->
-        <div id="carousel-example-generic" class="carousel slide">
-            <ol class="carousel-indicators">
-                <!-- li는 이미지 개수만큼 추가하고 data-target은 carousel id를 가르킨다. -->
-                <!-- data-slide-to는 순서대로 0부터 올라가고 0은 active를 설정한다. -->
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-            </ol>
-            <!-- 실제 이미지 아이템 -->
-            <!-- class는 carousel-inner로 설정하고 role은 listbox로 설정한다. -->
-            <div class="carousel-inner" role="listbox">
-                <!-- 이미지의 개수만큼 item을 만든다. carousel-indicators의 li 태그 개수와 item의 개수는 일치해야 한다. -->
-                <div class="item active">
-                    <!-- 아미지 설정(회전하는 이미지)--->
-                    <img src="../public/images/1.png" style="height:100%">
+
+        <header>
+            <div class="container">
+                <div class="menu menu_left">
+                    <img src="/images/logo.png" class="logo" />
+                    <span class="title">
+                        <div style="font-size: x-small;margin :0 0 5px 5px">소프트웨어학과</div>
+                        사물함 예약 시스템
+                    </span>
                 </div>
-                <div class="item">
-                    <img src="../public/images/2.png" style="height:100%">
-                </div>
-                <div class="item">
-                    <img src="../public/images/3.png" style="height:100%">
-                </div>
-                <div class="item">
-                    <img src="../public/images/4.png" style="height:100%">
-                </div>
-                <div class="item">
-                    <img src="../public/images/5.png" style="height:100%">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="/">ABOUT</a></li>
+                        <li><a href="/reservation">RESERVATION</a></li>
+                    </ul>
+                </nav>
+                <div class="menu menu_right">
+                    <div class="my_page" OnClick="location.href ='/process/login';">로그인</div>
                 </div>
             </div>
+        </header>
+
+        <main>
+            <!-- carousel를 구성할 영역 설정 -->
+            <div class="main_img">
+                <!-- carousel를 사용하기 위해서는 class에 carousel와 slide 설정한다. -->
+                <div id="carousel-example-generic" class="carousel slide">
+                        <div class="carousel-inner" role="listbox">
+                            <!-- 이미지의 개수만큼 item을 만든다. carousel-indicators의 li 태그 개수와 item의 개수는 일치해야 한다. -->
+                            <div class="item active">
+                                <!-- 아미지 설정(회전하는 이미지)--->
+                                <img src="/images/1.png" style="width:100%;">
+                            </div>
+                            <div class="item">
+                                <img src="/images/2.png" style="width:100%;">
+                            </div>
+                            <div class="item">
+                                <img src="/images/3.png" style="width:100%;">
+                            </div>
+                            <div class="item">
+                                <img src="/images/4.png" style="width:100%;">
+                            </div>
+                            <div class="item">
+                                <img src="/images/5.png" style="width:100%;">
+                            </div>
+                        </div>
+                </div>
+    
+            </div>
+        </main>
     </body>
+
+
     <script type="text/javascript">//dropdown 위해서 fadeToggle 사용
         // 전제가 아니라 마우스 올려놓은 부분의 세부 메뉴만 보기 위해서 this객체에서 .drop(세부 메뉴)를 찾아서 나타나게 함.
         $(".menu_opt").hover(function () {
@@ -55,7 +83,7 @@
             $('#carousel-example-generic').carousel({
                 // 슬리아딩 자동 순환 지연 시간	
                 // false면 자동 순환하지 않는다.	
-                interval: 2000,
+                interval: 4000,
                 // hover를 설정하면 마우스를 가져대면 자동 순환이 멈춘다.	
                 pause: "hover",
                 // 순환 설정, true면 1 -> 2가면 다시 1로 돌아가서 반복	

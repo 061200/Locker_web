@@ -1,6 +1,12 @@
-/*html {
-  width: 100vw;
+body{
+  background-color:  rgb(255, 255, 255);
 }
-body {
-  width: 100%;
-}*/
+.main_img{
+  
+
+  width: 100vw;
+  max-width: 800px;
+  margin: auto;
+  
+
+}

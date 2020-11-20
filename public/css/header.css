@@ -1,10 +1,11 @@
 header {
   margin: 0 auto;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  padding: 6px 0;
+  border-bottom: 2px solid #ddd;
   font-weight: 600;
   font-size: 16px;
-  background: white;
+  background-color: #fff;
+
 }
 
 .container {
@@ -21,6 +22,7 @@ header {
 }
 
 .title {
+  color: rgb(49, 64, 84);
   margin: auto 0 auto 10px;
 }
 
@@ -44,14 +46,15 @@ ul {
 }
 .menu a {
   text-decoration: none;
-  color: #aaa;
+  color: rgb(49, 64, 84);
   padding: 0.3vw 1vw;
   font-weight: 700;
   letter-spacing: 0.2vw;
 }
 
 .menu a:hover {
-  background-color: rgb(168 155 231);
+  box-shadow: 0px 0px 10px 0px #aaa;
+  background-color: rgba(135, 158, 189, 0.877);
   color: white;
   transition-duration: 0.7s;
   transition-timing-function: ease-in-out;
@@ -62,8 +65,11 @@ ul {
 }
 
 .my_page {
+  cursor: pointer;
+  color: rgb(49, 64, 84);
   margin-right: 50px;
 }
+
 
 @media (max-width: 800px) {
   nav {
