@@ -23,9 +23,8 @@
 }
 
 .main_container {
-  width: 80%;
   max-width: 1000px;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 
 #cabinet {
@@ -33,11 +32,11 @@
   display: flex;
   justify-content: center;
   height: 45vw;
-  max-height: 500px;
+  max-height: 300px;
 
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 70%;
 }
 
 .cabinet_select {
