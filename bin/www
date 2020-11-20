@@ -39,7 +39,26 @@ var seats = lockerJSON.seats; // seat 상태 받아오기
 io.on('connection', function (socket) {
     console.log("Socket Connected!");
     socket.on('reserve', function (data) {
-      lockerJSON.seats[data.page][data.y][data.x] = 2; 
+      
+      var flag = 0;
+      seats.forEach(e => {
+          e.forEach( element =>{
+            element.forEach(seat=>{
+               if(seat == 2){
+                 flag = 1; //예약된 좌석 존재
+               }
+            })
+          })
+      });
+
+      if(flag == 0){
+        lockerJSON.seats[data.page][data.y][data.x] = 2; 
+      }else{
+        if(lockerJSON.seats[data.page][data.y][data.x] == 2){
+          lockerJSON.seats[data.page][data.y][data.x] = 1;
+        }
+      }
+      
       fs.writeFile(__dirname+'/../locker.json',JSON.stringify(lockerJSON), (err)=>{
             if (err) throw err;
           });

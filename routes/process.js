@@ -199,8 +199,7 @@ var authUser = function (id, password, callback) {
             }
         );
  
-    }
-    );
+    });
  
 };
 

@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var processRouter = require('./routes/process');
+var reservationRouter = require('./routes/reservation');
 
 var app = express(); //express 사용하여 app 만들기
 
@@ -46,14 +47,10 @@ console.log(lockerJSON.seats);
 */
 
 
-
-
-
-
 //app 라우팅 하기
 app.use('/', indexRouter);
 app.use('/process', processRouter);
-
+app.use('/reservation', reservationRouter);
 
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
