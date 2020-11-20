@@ -86,9 +86,6 @@ ul {
   .my_page {
     margin-right: 10px;
   }
-  .logo {
-    width: 40px;
-  }
 
   header {
     font-size: 14px;
@@ -98,9 +95,7 @@ ul {
   .my_page {
     margin-right: 5px;
   }
-  .logo {
-    width: 30px;
-  }
+
 
   header {
     font-size: 11px;
