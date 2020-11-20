@@ -14,6 +14,10 @@ router.get('/', function(req, res){
     res.render('main');
 });
 
+router.get('/map', function(req, res){
+    res.render('map');
+});
+
 router.get('/seats', function(req, res){ // /seats 에 상태 보내기
     res.send(lockerJSON.seats);
 });
