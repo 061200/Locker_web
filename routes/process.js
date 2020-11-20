@@ -24,6 +24,10 @@ router.get('/addUser', function(_req, res) {
     res.render('signup');
 }); 
 
+router.get('/relogin', function(_req, res) {
+    res.render('relogin');
+}); 
+
 
 router.route('/addUser').post(
     function (req, res)
@@ -39,34 +43,48 @@ router.route('/addUser').post(
         addUser(paramID, paramName, paramEmail, paramPW,
             function (err, result) {
                 if (err) {
-                    console.log('Error!!!');
-                    res.send('<script type="text/javascript">alert("에러!!");</script>');
-                    res.end();
-                    return;
+                    res.redirect('back');
                 }
  
                 if (result)
-                {
-                    console.dir(result);
-                    res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
-                    res.send('<script type="text/javascript">alert("가입 성공.");</script>');
-                    res.write('<br><a href="./login"> re login </a>');
-                    res.end();
+                {   
+                    res.redirect('./login');
                 }
                 else
                 {
-                    console.log('데이터베이스에 추가 에러');
-                    res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
-                    res.send('<script type="text/javascript">alert("데이터베이스 에러.");</script>');
-                    res.write('<a href="./process/login"> re login</a>');
-                    res.end();
+                    res.redirect('back');
                 }
             }
         );
     }
 );
  
+router.route('/relogin').post(
+    function (req, res) {
+        console.log('process/login 호출됨');
+        var paramID = req.body.id || req.query.id;
+        var paramPW = req.body.passwords || req.query.passwords;
+        console.log('paramID : ' + paramID + ', paramPW : ' + paramPW);
  
+        authUser( paramID, paramPW,
+            function (err, rows)
+            {
+                if (err) {
+                    res.redirect('./relogin');
+                }
+ 
+                if (rows) {
+                    console.dir(rows);
+                    res.redirect('/');
+ 
+                }
+                else {
+                    res.redirect('./relogin');
+                }
+            }
+        );
+    }
+);
  
 router.route('/login').post(
     function (req, res) {
@@ -79,28 +97,16 @@ router.route('/login').post(
             function (err, rows)
             {
                 if (err) {
-                    console.log('Error!!!');
-                    res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
-                    res.send('<script type="text/javascript">alert("에러 발생.");</script>');
-                    res.end();
-                    return;
+                    res.redirect('./relogin');
                 }
  
                 if (rows) {
                     console.dir(rows);
-                    res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
-                    res.write('<h1>Login Success</h1>');
-                    res.write('<br><a href="./reservation">메인 화면으로 ~ </a></br>');
-                    res.write('<a href="./login"> re login</a>');
-                    res.end();
+                    res.redirect('/');
  
                 }
                 else {
-                    console.log('empty Error!!!');
-                    res.writeHead(200, { "Content-Type": "text/html;charset=utf-8" });
-                    res.send('<script type="text/javascript">alert("존재하지 않는 사용자입니다.");</script>');
-                    res.write('<a href="./login"> re login</a>');
-                    res.end();
+                    res.redirect('./relogin');
                 }
             }
         );
@@ -186,6 +192,7 @@ var authUser = function (id, password, callback) {
                     callback(null, rows);
                 } else {
                     console.log('사용자 찾지 못함');
+                    
                     callback(null, null);
                 }
  

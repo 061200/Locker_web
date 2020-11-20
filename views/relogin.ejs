@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css?ver=1">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        alert('다시 로그인하세요!!');
+        </script>
+
+    <title>로그인 페이지</title>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="menu menu_left">
+                <img src="/images/logo.jpg" class="logo">
+                <span class="title">사물함 예약 시스템</span>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">RESERVATION</a></li>
+                </ul>
+            </nav>
+            <div class="menu menu_right">
+                <div class="my_page">마이페이지</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <form action="/process/reLogin" method="post" id="main_box" >
+            <p>
+                <input class="input" id="username" type="text" name="id" Placeholder = "ID"></p>
+            <p>
+                <input class="input" id="password" type="text" name="passwords" placeholder="Password"></p>
+            <p><input type="submit" onclick="() => check" id="login_button" value="Login"></p>
+        </form>
+        <div id="signup">
+            <a href="./addUser" style="text-decoration:none" href="">
+                가입하기
+            </a>
+        </div>
+    </main>
+    
+</body>
+</html>
