@@ -19,11 +19,13 @@ header {
 
 .logo {
   width: 50px;
+  cursor: pointer;
 }
 
 .title {
   color: rgb(49, 64, 84);
   margin: auto 0 auto 10px;
+  cursor: pointer;
 }
 
 
