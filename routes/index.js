@@ -9,10 +9,9 @@ var lockerJSON = JSON.parse(locker);
 //console.log(lockerJSON.seats);
 
 
-
 //라우팅 -> 나중에 라우팅 따로 해주자
 router.get('/', function(req, res){
-    res.render('reservation');
+    res.render('main');
 });
 
 router.get('/seats', function(req, res){ // /seats 에 상태 보내기
