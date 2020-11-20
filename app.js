@@ -50,7 +50,6 @@ console.log(lockerJSON.seats);
 //app 라우팅 하기
 app.use('/', indexRouter);
 app.use('/process', processRouter);
-app.use('/reservation', reservationRouter);
 
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
